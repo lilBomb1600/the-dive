@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import { Bebas_Neue, Inter } from "next/font/google";
+import "./globals.css";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { FloatingActions } from "@/components/layout/FloatingActions";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { business } from "@/data/business";
+
+const display = Bebas_Neue({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const body = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = {
+  title: `${business.name} | Bar & Lounge in Walnut Creek, CA`,
+  description: business.description,
+  metadataBase: new URL("https://the-dive.vercel.app"),
+  openGraph: {
+    title: `${business.name} | Bar & Lounge in Walnut Creek, CA`,
+    description: business.description,
+    type: "website",
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-ink text-cream">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <FloatingActions />
+        <BackToTop />
+      </body>
+    </html>
+  );
+}
