@@ -33,7 +33,7 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className={cn("font-display text-lg uppercase tracking-wider transition-all duration-200", l.color)}
+              className={cn("font-script text-2xl transition-all duration-200", l.color)}
             >
               {l.label}
             </Link>
@@ -43,7 +43,7 @@ export function Navbar() {
         <div className="hidden md:flex">
           <Link
             href="/contact"
-            className="shine-btn rounded-full bg-gradient-to-b from-blue-light to-blue px-5 py-2.5 font-display text-base uppercase tracking-wide text-ink shadow-[0_4px_20px_-4px_rgba(61,123,255,0.55)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_28px_-4px_rgba(61,123,255,0.75)]"
+            className="shine-btn rounded-full bg-gradient-to-b from-blue-light to-blue px-6 py-2.5 font-script text-xl text-ink shadow-[0_4px_20px_-4px_rgba(61,123,255,0.55)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_28px_-4px_rgba(61,123,255,0.75)]"
           >
             Visit Us
           </Link>
@@ -62,10 +62,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={cn(
-                  "rounded-lg px-3 py-3 font-display text-lg uppercase tracking-wider transition-colors hover:bg-surface",
-                  l.color
-                )}
+                className={cn("rounded-lg px-3 py-3 font-script text-2xl transition-colors hover:bg-surface", l.color)}
               >
                 {l.label}
               </Link>
@@ -73,7 +70,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-b from-blue-light to-blue px-5 py-3 text-center font-display text-base uppercase tracking-wide text-ink"
+              className="mt-2 rounded-full bg-gradient-to-b from-blue-light to-blue px-5 py-3 text-center font-script text-xl text-ink"
             >
               Visit Us
             </Link>
