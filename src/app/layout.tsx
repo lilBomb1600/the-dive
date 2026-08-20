@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { BackToTop } from "@/components/layout/BackToTop";
+import { AmbientFX } from "@/components/ui/AmbientFX";
 import { business } from "@/data/business";
 
 const display = Bebas_Neue({
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-ink text-cream">
+        <AmbientFX />
         <div className="pointer-events-none fixed inset-0 z-[54] bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
         <div className="grain-overlay pointer-events-none fixed inset-0 z-[55] opacity-[0.05]" />
         <Navbar />
