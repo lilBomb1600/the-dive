@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Space_Grotesk, Kaushan_Script } from "next/font/google";
+import { Anton, Space_Grotesk, Lobster } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -20,7 +20,7 @@ const body = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
 });
 
-const script = Kaushan_Script({
+const script = Lobster({
   variable: "--font-script",
   subsets: ["latin"],
   weight: ["400"],
