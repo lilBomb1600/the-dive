@@ -20,7 +20,7 @@ export function MasonryGallery() {
             key={img.id}
             disabled={!img.ready}
             onClick={() => setIndex(readyImages.findIndex((r) => r.id === img.id))}
-            className={`group relative overflow-hidden rounded-2xl border border-border ${ratios[i % ratios.length]} ${!img.ready ? "cursor-default" : ""}`}
+            className={`group relative overflow-hidden rounded-2xl border border-white/5 transition-shadow duration-300 hover:shadow-[0_20px_50px_-15px_rgba(61,123,255,0.4)] ${ratios[i % ratios.length]} ${!img.ready ? "cursor-default" : ""}`}
           >
             <SmartImage
               src={img.src}

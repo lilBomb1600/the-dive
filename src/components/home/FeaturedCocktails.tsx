@@ -4,12 +4,14 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
+import { PouringBottle } from "@/components/ui/BarDecor";
 import { cocktails } from "@/data/menu";
 
 export function FeaturedCocktails() {
   return (
     <section className="relative overflow-hidden border-t border-border/60 bg-surface/40 py-24 sm:py-28">
       <SectionGlow className="-left-40 top-1/4" color="amber" />
+      <PouringBottle className="pointer-events-none absolute -right-6 bottom-0 hidden h-64 w-64 opacity-[0.12] lg:block" />
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow="Signature Cocktails" title="Made with a little drama" />

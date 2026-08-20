@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
+import { ChampagnePop } from "@/components/ui/BarDecor";
 import { business } from "@/data/business";
 
 export function CTASection() {
@@ -10,6 +11,8 @@ export function CTASection() {
       <SectionGlow className="left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 bg-blue/[0.1]" />
       <Container>
         <Reveal className="glow-ring-blue relative flex flex-col items-center overflow-hidden rounded-[2.5rem] border border-white/5 bg-gradient-to-br from-surface to-surface-light p-10 text-center shadow-[0_40px_100px_-30px_rgba(61,123,255,0.35)] sm:p-16">
+          <ChampagnePop className="pointer-events-none absolute -top-4 right-6 hidden h-56 w-56 opacity-[0.18] sm:block" />
+          <ChampagnePop className="pointer-events-none absolute -top-4 left-6 hidden h-56 w-56 -scale-x-100 opacity-[0.18] sm:block" />
           <h2 className="font-display text-balance text-4xl tracking-wide text-cream sm:text-5xl">
             Come find your new local.
           </h2>
