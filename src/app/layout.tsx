@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Anton, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,13 +8,13 @@ import { BackToTop } from "@/components/layout/BackToTop";
 import { AmbientFX } from "@/components/ui/AmbientFX";
 import { business } from "@/data/business";
 
-const display = Bebas_Neue({
+const display = Anton({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400"],
 });
 
-const body = Inter({
+const body = Space_Grotesk({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
