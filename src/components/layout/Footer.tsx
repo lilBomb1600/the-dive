@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex items-center gap-3">
           <Logo />
           <div>
-            <p className="font-display text-2xl tracking-wide text-cream">The Dive</p>
+            <p className="neon-text font-script text-3xl text-blue-light">The Dive</p>
             <p className="mt-1 max-w-sm text-sm leading-relaxed text-muted">{business.tagline}</p>
           </div>
         </div>

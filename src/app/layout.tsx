@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Space_Grotesk } from "next/font/google";
+import { Anton, Space_Grotesk, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -20,6 +20,12 @@ const body = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
 });
 
+const script = Kaushan_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: `${business.name} | Bar & Lounge in Walnut Creek, CA`,
   description: business.description,
@@ -33,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${script.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-ink text-cream">
         <AmbientFX />
         <div className="pointer-events-none fixed inset-0 z-[54] bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />

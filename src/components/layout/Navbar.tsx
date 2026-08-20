@@ -25,7 +25,7 @@ export function Navbar() {
             <span className="absolute h-8 w-8 rounded-full bg-blue/40 blur-lg" />
             <Logo className="relative" />
           </span>
-          <span className="neon-text font-display text-3xl tracking-wide text-blue-light">The Dive</span>
+          <span className="neon-text font-script text-4xl text-blue-light">The Dive</span>
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
