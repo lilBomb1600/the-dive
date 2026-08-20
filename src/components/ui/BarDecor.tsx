@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function PouringBottle({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 220 240"
+      viewBox="-10 -25 240 265"
       className={cn("drop-glow-amber text-amber", className)}
       fill="none"
       stroke="currentColor"
@@ -14,15 +14,16 @@ export function PouringBottle({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      {/* bottle, tilted */}
-      <g transform="rotate(-32 70 70)">
-        <rect x="52" y="20" width="36" height="90" rx="10" />
-        <rect x="62" y="4" width="16" height="20" rx="4" />
-        <path d="M56 50h28" opacity="0.5" />
+      {/* bottle, tilted — rotated around its own mouth (100,80) so the
+          pour stream below always lines up with the opening exactly */}
+      <g transform="rotate(-28 100 80)">
+        <rect x="80" y="-20" width="40" height="82" rx="10" />
+        <rect x="92" y="62" width="16" height="18" rx="3" />
+        <path d="M84 14h32" opacity="0.5" />
       </g>
-      {/* pour stream */}
+      {/* pour stream, starting exactly at the bottle mouth (100,80) */}
       <motion.path
-        d="M96 66 C 100 100, 108 120, 118 148"
+        d="M100 80 C 106 115, 118 145, 130 158"
         className="animate-pour text-amber-light"
         stroke="currentColor"
         initial={{ opacity: 0 }}
@@ -34,8 +35,8 @@ export function PouringBottle({ className }: { className?: string }) {
       {[0, 1, 2].map((i) => (
         <circle
           key={i}
-          cx={112 + i * 3}
-          cy="140"
+          cx={126 + i * 3}
+          cy="150"
           r="2.5"
           fill="currentColor"
           stroke="none"
@@ -44,10 +45,10 @@ export function PouringBottle({ className }: { className?: string }) {
         />
       ))}
       {/* glass */}
-      <path d="M100 150 L136 150 L128 210 L108 210 Z" />
+      <path d="M114 158 L150 158 L142 218 L122 218 Z" />
       <motion.rect
-        x="104"
-        y="170"
+        x="118"
+        y="178"
         width="28"
         height="36"
         className="text-amber"

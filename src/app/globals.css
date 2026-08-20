@@ -101,6 +101,13 @@ body {
     0 0 55px rgba(255, 79, 163, 0.3);
 }
 
+.neon-text-lime {
+  text-shadow:
+    0 0 8px rgba(158, 224, 83, 0.9),
+    0 0 22px rgba(158, 224, 83, 0.55),
+    0 0 55px rgba(158, 224, 83, 0.3);
+}
+
 .drop-glow-blue {
   filter: drop-shadow(0 0 10px rgba(61, 123, 255, 0.55));
 }
@@ -209,6 +216,43 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.glow-ring {
+  position: relative;
+}
+
+.glow-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, currentColor, transparent 65%);
+  opacity: 0.85;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes neon-flicker-glow {
+  0%,
+  19%,
+  21%,
+  23%,
+  100% {
+    box-shadow: 0 0 26px -8px currentColor, 0 0 4px -1px currentColor;
+  }
+  20%,
+  22% {
+    box-shadow: 0 0 44px -6px currentColor, 0 0 12px -2px currentColor;
+  }
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker-glow 4s ease-in-out infinite;
 }
 
 .grain-overlay {

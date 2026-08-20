@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
 import { CocktailGlass, PouringBottle } from "@/components/ui/BarDecor";
+import { cn } from "@/lib/utils";
 import { business } from "@/data/business";
 import { cansBeer, nonAlcoholicBeer, draftBeer, cocktails, menuNote } from "@/data/menu";
 
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
   title: `Menu | ${business.name}`,
   description: "Beer, draft, and signature cocktails at The Dive in Walnut Creek, CA.",
 };
+
+const flavors = [
+  { text: "text-pink", neon: "neon-text-pink" },
+  { text: "text-lime", neon: "neon-text-lime" },
+  { text: "text-blue-light", neon: "neon-text" },
+];
 
 function BeerRow({ item }: { item: { name: string; style?: string; abv?: string } }) {
   return (
@@ -53,14 +60,23 @@ export default function MenuPage() {
             <h2 className="font-display text-3xl tracking-wide text-cream">Signature Cocktails</h2>
           </Reveal>
           <RevealGroup className="grid gap-6 sm:grid-cols-3">
-            {cocktails.map((c) => (
-              <RevealItem key={c.name}>
-                <div className="glow-ring-blue group flex h-full flex-col rounded-3xl border border-white/5 bg-gradient-to-b from-surface to-surface-light p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_25px_60px_-15px_rgba(255,79,163,0.3)]">
-                  <h3 className="font-display text-2xl tracking-wide text-cream">{c.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{c.description}</p>
-                </div>
-              </RevealItem>
-            ))}
+            {cocktails.map((c, i) => {
+              const f = flavors[i % flavors.length];
+              return (
+                <RevealItem key={c.name}>
+                  <div
+                    className={cn(
+                      "glow-ring animate-neon-flicker group flex h-full flex-col rounded-3xl border border-white/5 bg-gradient-to-b from-surface to-surface-light p-7 transition-transform duration-300 hover:-translate-y-1.5",
+                      f.text
+                    )}
+                    style={{ animationDelay: `${i * 0.8}s` }}
+                  >
+                    <h3 className={cn("font-display text-3xl uppercase tracking-wide", f.neon, f.text)}>{c.name}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">{c.description}</p>
+                  </div>
+                </RevealItem>
+              );
+            })}
           </RevealGroup>
         </Container>
       </section>
