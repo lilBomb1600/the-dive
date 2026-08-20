@@ -3,16 +3,20 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SmartImage } from "@/components/ui/SmartImage";
+import { SectionGlow } from "@/components/ui/SectionGlow";
 import { galleryImages } from "@/data/gallery";
 
 const image = galleryImages.find((g) => g.id === "interior-bar-counter")!;
 
 export function AboutPreview() {
   return (
-    <section className="border-t border-border/60 bg-surface/40 py-24 sm:py-28">
+    <section className="relative overflow-hidden border-t border-border/60 bg-surface/40 py-24 sm:py-28">
+      <SectionGlow className="-right-32 top-1/3" color="amber" />
       <Container className="grid items-center gap-14 lg:grid-cols-2">
-        <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-border">
-          <SmartImage src={image.src} alt={image.alt} ready={image.ready} sizes="560px" />
+        <Reveal className="group glow-ring-blue relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/5 shadow-[0_20px_60px_-15px_rgba(61,123,255,0.3)]">
+          <div className="h-full w-full overflow-hidden transition-transform duration-700 ease-out group-hover:scale-105">
+            <SmartImage src={image.src} alt={image.alt} ready={image.ready} sizes="560px" />
+          </div>
         </Reveal>
         <Reveal delay={0.1}>
           <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue">
