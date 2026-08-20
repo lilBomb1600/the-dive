@@ -29,7 +29,7 @@ const confetti = Array.from({ length: 16 }, (_, i) => {
 
 export function AmbientFX() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-[52] overflow-hidden" aria-hidden>
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
       {sparkles.map((s, i) => (
         <div
           key={`s-${i}`}
