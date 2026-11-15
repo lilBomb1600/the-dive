@@ -1,17 +1,14 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Martini, Beer } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
 import { CocktailGlass, PouringBottle } from "@/components/ui/BarDecor";
 import { cn } from "@/lib/utils";
-import { business } from "@/data/business";
 import { cansBeer, nonAlcoholicBeer, draftBeer, cocktails, menuNote } from "@/data/menu";
 
-export const metadata: Metadata = {
-  title: `Menu | ${business.name}`,
-  description: "Beer, draft, and signature cocktails at The Dive in Walnut Creek, CA.",
-};
+export const metadata = pageMetadata(pageCopy.menu);
 
 const flavors = [
   { text: "text-pink", neon: "neon-text-pink" },

@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Music, HeartHandshake, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -8,10 +9,7 @@ import { CocktailGlass, ChampagnePop } from "@/components/ui/BarDecor";
 import { business } from "@/data/business";
 import { galleryImages } from "@/data/gallery";
 
-export const metadata: Metadata = {
-  title: `About | ${business.name}`,
-  description: business.description,
-};
+export const metadata = pageMetadata(pageCopy.about);
 
 const heroImage = galleryImages.find((g) => g.id === "interior-turtle-neon")!;
 

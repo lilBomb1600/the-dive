@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
 import { MasonryGallery } from "@/components/gallery/MasonryGallery";
-import { business } from "@/data/business";
 
-export const metadata: Metadata = {
-  title: `Gallery | ${business.name}`,
-  description: "A look inside The Dive — bar, lounge, and neon.",
-};
+export const metadata = pageMetadata(pageCopy.gallery);
 
 export default function GalleryPage() {
   return (

@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Clock, MapPin, ArrowUpRight, Info } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -6,10 +7,7 @@ import { SectionGlow } from "@/components/ui/SectionGlow";
 import { PouringBottle } from "@/components/ui/BarDecor";
 import { business } from "@/data/business";
 
-export const metadata: Metadata = {
-  title: `Contact | ${business.name}`,
-  description: "Find The Dive in Walnut Creek, CA — address, hours, and directions.",
-};
+export const metadata = pageMetadata(pageCopy.contact);
 
 export default function ContactPage() {
   return (

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Anton, Space_Grotesk, Lobster } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -6,7 +5,10 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { AmbientFX } from "@/components/ui/AmbientFX";
-import { business } from "@/data/business";
+import { JsonLd } from "@/components/JsonLd";
+import { siteJsonLd } from "@/lib/seo/jsonld";
+import { rootMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 
 const display = Anton({
   variable: "--font-display",
@@ -26,21 +28,13 @@ const script = Lobster({
   weight: ["400"],
 });
 
-export const metadata: Metadata = {
-  title: `${business.name} | Bar & Lounge in Walnut Creek, CA`,
-  description: business.description,
-  metadataBase: new URL("https://the-dive.vercel.app"),
-  openGraph: {
-    title: `${business.name} | Bar & Lounge in Walnut Creek, CA`,
-    description: business.description,
-    type: "website",
-  },
-};
+export const metadata = rootMetadata({ title: pageCopy.home.title, description: pageCopy.home.description });
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${script.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-ink text-cream">
+        <JsonLd data={siteJsonLd()} />
         <AmbientFX />
         <div className="pointer-events-none fixed inset-0 z-[54] bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
         <div className="grain-overlay pointer-events-none fixed inset-0 z-[55] opacity-[0.05]" />

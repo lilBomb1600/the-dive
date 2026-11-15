@@ -5,6 +5,10 @@ import { AboutPreview } from "@/components/home/AboutPreview";
 import { GalleryPreview } from "@/components/home/GalleryPreview";
 import { HoursLocation } from "@/components/home/HoursLocation";
 import { CTASection } from "@/components/home/CTASection";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
+
+export const metadata = pageMetadata(pageCopy.home);
 
 export default function Home() {
   return (
